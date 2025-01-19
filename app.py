@@ -7,11 +7,11 @@ app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
 # Database connection details (hardcoded)
-DB_HOST = "ep-orange-glitter-a8g7veha.eastus2.azure.neon.tech"
-DB_PORT = "5432"
-DB_USER = "neondb_owner"
-DB_PASSWORD = "esCRTncx1y2t"
-DB_NAME = "neondb"
+DB_HOST = os.getenv("DB_HOST", "localhost")
+DB_PORT = os.getenv("DB_PORT", "5432")
+DB_USER = os.getenv("DB_USER", "user")
+DB_PASSWORD = os.getenv("DB_PASSWORD", "password")
+DB_NAME = os.getenv("DB_NAME", "database")
 
 # Create a database connection
 def get_db_connection():
